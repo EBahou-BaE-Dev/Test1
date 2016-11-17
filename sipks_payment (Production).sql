@@ -23,7 +23,7 @@ AS
 ** MUMBAI - 400 096.
 ** INDIA
 **
-** Copyright © 1998 - 2009 Oracle Financial Services Software Limited.
+** Copyright Â© 1998 - 2009 Oracle Financial Services Software Limited.
 ----------------------------------------------------------------------------------------------------*/
 
 g_eventcode				CSTBS_CONTRACT.curr_event_code%TYPE;
@@ -95,7 +95,7 @@ CREATE OR REPLACE PACKAGE BODY FCUBEUSER.sipks_payment AS
 **Mumbai - 400 096.
 **India
 
-Copyright © 1997- 2013 by Oracle Financial Services Software Limited.
+Copyright Â© 1997- 2013 by Oracle Financial Services Software Limited.
 
 ----------------------------------------------------------------------------------------*/
 
@@ -170,7 +170,7 @@ IS
     AND    a.version_no = (select max(version_no)
                 from sitbs_contract_master
                 --where contract_ref_no = a.contract_ref_no and event_code <> ' CLOS')
-		where contract_ref_no = a.contract_ref_no AND dr_acc_br = pkg_branch)	
+		where contract_ref_no = a.contract_ref_no /*AND dr_acc_br = pkg_branch*/)	
     AND EXISTS (SELECT 1 FROM CSTBS_CONTRACT WHERE MODULE_CODE = 'SI' AND CONTRACT_REf_NO = A.CONTRACT_REF_NO AND CONTRACT_STATUS <> 'S')
     ORDER BY  b.dr_account asc, a.si_value_date asc, a.priority desc;
     -- 3-12694450741 Changes Ends
@@ -190,7 +190,7 @@ l_limit_check        VARCHAR2(5) := 'FALSE';
 
 BEGIN
 
-        debug.pr_debug ('SI','In fn_execute_payments for branch '||global.current_branch);
+        
         --JORUBJFCC0573 retro of DEFLT00014141 changes TO REINAITAILAIZE THE PACKAGE VARIBALES
             pkg_branch  := global.current_branch;
             pkg_appdate := global.application_date;
